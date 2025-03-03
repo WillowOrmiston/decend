@@ -82,9 +82,20 @@ def decode(msg):
 def main():
     #  this is a while loop awawawa
     while True:
-        msg = input("^-^--> ")
-        res = decode(msg)
-        print(res)
+        cmd, *msgs = input("^-^--> ").split()
+        match cmd:
+            case 'enc' | 'encode':
+                # TODO: implement the encoder
+                raise NotImplementedError(f'command: encoding')
+            case 'dec' | 'decode':
+                for msg in msgs:
+                    res = decode(msg)
+                    print(res, end=' ')
+                print()
+            case 'help':
+                print('please type a command (enc, dec, help)')
+            case _:
+                raise NotImplementedError(f'command: {cmd}')
 
 
 if __name__ == '__main__':
