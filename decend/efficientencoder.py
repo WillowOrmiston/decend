@@ -39,7 +39,7 @@
 # 
 # ok so- fuck it all rn, lets make what we know we need
 # end parethises maker
-# find and goto letter
+# find (done) and goto letter (not done)
 # start wherever
 # everything else can wait
 # 
@@ -81,16 +81,21 @@ vowtable = ['O', 'o', 'U', 'A', 'u', 'a', 'e', 'I', 'E',]
 
 x = 1
 
-def encode(msg):
-    print('[' + msg + ']')
+def laststep(finalmsg):
+    print('[' + finalmsg + ']')
     
 def conlocate(var):
     for column in contable:
         if var in column:
-            print("y", column.index(var), ": x", contable.index(column))
+            
+            x = column.index(var) 
+            y = contable.index(column)
+            print(x, y)
 
 def vowlocate(var):
-    print("y", vowtable.index(var))
+    
+    x = vowtable.index(var)
+    print(x)
 
 
 def conorvow(var):
@@ -98,17 +103,19 @@ def conorvow(var):
         isvow = True
         iscon = False
 
-        print("vowelspotted")
+        print("vow spot")
+        # temp-- may use something else instead of vowlocate
+        vowlocate(var)
 
 
     elif any(var in column for column in contable):
         iscon = True
         isvow = False
 
-        print("consonantspotted")
+        print("con spot")
+        # temp-- may use something else instead of conlocate
+        conlocate(var)
         
-
-
 
 
 
